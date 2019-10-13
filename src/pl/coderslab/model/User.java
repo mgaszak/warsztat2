@@ -2,19 +2,19 @@ package pl.coderslab.model;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-public class user {
+public class User {
     private int id;
     private String userName;
     private String email;
     private String password;
 
-    public user(String userName, String email, String password) {
+    public User(String userName, String email, String password) {
         this.userName = userName;
         this.email = email;
         hashPassword(password);
     }
 
-    public user() {
+    public User() {
     }
     public void hashPassword(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
@@ -52,4 +52,13 @@ public class user {
         this.password = password;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
